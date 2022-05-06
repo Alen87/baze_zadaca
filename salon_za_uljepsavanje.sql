@@ -5,11 +5,11 @@ create database salon_za_uljepsavanje;
 use salon_za_uljepsavanje;
 
 create table djelatnice(
-    oib varchar(50),
     ime_prezime varchar(50),
-    datum_rodenja varchar(50),
-    popis korisnika varchar(50)
+    oib varchar(50),
+    popis_korsnika varchar(50)
 );
+
 
 create table korisnici(
     ime_prezime varchar(50),
