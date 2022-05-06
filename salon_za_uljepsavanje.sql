@@ -18,6 +18,12 @@ create table korisnici(
     naruceno_vrijeme varchar(50)
 );
 
+create table usluge(
+    solarij varchar(50),
+    trepavice varchar(50),
+    frizura varchar(50)
+);
+
 
 
 
