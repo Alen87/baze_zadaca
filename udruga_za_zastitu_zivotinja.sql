@@ -13,6 +13,12 @@ create table osobe(
 create table sticenici(
     vrsta_sticenika varchar(50),
     godina_starosti varchar(50),
-    podrijetlo varchar(50)
+    podrijetlo varchar(50),
+    br_prostora varchar(50)
 );
 
+create table prostor(
+vrsta_prostora varchar(50),
+godina_izgradnje varchar(50),
+velicina_prostora varchar(50)
+);
