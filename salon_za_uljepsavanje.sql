@@ -1,6 +1,6 @@
  # C:\xampp\mysql\bin>mysql -uroot < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\salon_za_uljepsavanje.sql
 
-drop database if exists salon_za_ulijepsavanje;
+drop database if exists salon_za_uljepsavanje;
 create database salon_za_uljepsavanje;
 use salon_za_uljepsavanje;
 
