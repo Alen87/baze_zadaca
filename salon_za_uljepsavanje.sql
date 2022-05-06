@@ -14,9 +14,8 @@ create table djelatnice(
 create table korisnici(
     ime_prezime varchar(50),
     telefonski_broj varchar(50),
-    
-
-
+    usluga varchar(50),
+    naruceno_vrijeme varchar(50)
 );
 
 
