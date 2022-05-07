@@ -23,6 +23,12 @@ create table odgajateljica(
     strucna_sprema varchar(50)
 );
 
+create table strucna_sprema(
+    naziv varchar(50),
+    datum varchar(50),
+    staziranje varchar(50)
+);
+
 
 
 
