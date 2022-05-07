@@ -14,7 +14,7 @@ create table svecenici(
 create table poslovi(
     mise varchar(50),
     ispovijedi varchar(50),
-    svecenje_kuca varchar(50),
+    svecenje_kuca varchar(50)
 );
 
 create table nadredeni_svecenik(
