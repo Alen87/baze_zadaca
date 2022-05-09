@@ -22,5 +22,5 @@ create table pacijenti(
 create table medicinske_sestre(
     ime_prezime varchar(50),
     oib varchar(50),
-    dezurstvo varchar(50),
+    dezurstvo varchar(50)
 );
