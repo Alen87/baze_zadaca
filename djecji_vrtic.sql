@@ -5,6 +5,7 @@ create database djecji_vrtic;
 use djecji_vrtic;
 
 create table odgojna_skupina(
+    sifra int not null primary key auto_increment,
     oznaka_skupine varchar(50),
     broj_djece varchar(50),
     dob_djece varchar(50)
