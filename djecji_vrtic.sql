@@ -6,8 +6,8 @@ use djecji_vrtic;
 
 create table odgojna_skupina(
     sifra int not null primary key auto_increment,
-    oznaka_skupine varchar(50),
-    broj_djece varchar(50),
+    djeca int,
+    odgajateljica int,
     dob_djece varchar(50)
 );
 
