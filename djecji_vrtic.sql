@@ -6,30 +6,34 @@ use djecji_vrtic;
 
 create table odgojna_skupina(
     sifra int not null primary key auto_increment,
-    djeca int,
-    odgajateljica int,
-    dob_djece varchar(50)
+    djeca int not null,
+    odgajateljica int not null,
+    cijena decimal(18,2) not null
 );
 
 create table djeca(
-    ime_prezime varchar(50),
-    datum_rodenja varchar(50),
-    adresa varchar(50)
+    sifra int not null primary key auto_increment,
+    ime_prezime varchar(50) not null,
+    datum_rodenja datetime not null,
+    adresa varchar(50) not null
 );
 
 create table odgajateljica(
-    ime_prezime varchar(50),
-    oib varchar(50),
+    sifra int not null primary key auto_increment,
+    ime_prezime varchar(50) not null,
+    oib char(11),
     adresa varchar(50),
-    strucna_sprema varchar(50)
+    strucna_sprema int
 );
 
 create table strucna_sprema(
-    naziv varchar(50),
-    datum varchar(50),
-    staziranje varchar(50)
+    sifra int not null primary key auto_increment,
+    naziv varchar(50) not null,
+    datum datetime,
+    staziranje datetime
 );
 
 
-
+# definiranje  vanjskih kljuceva
+alter table odgojna_skupina add foreign key (djeca) references djeca(sifra);
 
