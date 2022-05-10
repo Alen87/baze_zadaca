@@ -36,4 +36,5 @@ create table strucna_sprema(
 
 # definiranje  vanjskih kljuceva
 alter table odgojna_skupina add foreign key (djeca) references djeca(sifra);
-
+alter table odgojna_skupina add foreign key (odgajateljica) references odgajateljica(sifra);
+alter table odgajateljica add foreign key (strucna_sprema) references strucna_sprema(sifra);
