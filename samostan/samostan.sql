@@ -18,8 +18,8 @@ create table posao(
     sifra int not null primary key auto_increment,
     mise varchar(30),
     ispovijedi varchar(30),
-    svecenje_kuca varchar(30),
-    svecenik int
+    svecenje_kuca varchar(30)
+    
 );
 
 create table nadredeni_svecenik(
@@ -33,7 +33,7 @@ create table nadredeni_svecenik(
 # definiranje vanjskih kljuceva
 alter table svecenik add foreign key (posao) references posao (sifra);
 alter table svecenik add foreign key (nadredeni_svecenik) references nadredeni_svecenik (sifra);
-alter table posao add foreign key (svecenik) references svecenik (sifra);
+
 
 # unos podataka
 insert into nadredeni_svecenik (ime_prezime,oib)
