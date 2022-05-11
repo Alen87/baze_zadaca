@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\doktorska_ordinacija.sql
+# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\doktorska_ordinacija\doktorska_ordinacija.sql
 
 drop database if exists doktorska_ordinacija;
 create database doktorska_ordinacija;
