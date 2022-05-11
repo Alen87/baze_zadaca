@@ -21,9 +21,25 @@ create table korisnik(
     usluga int not null
 );
 
-create table usluga(
-    vrsta_sisanja varchar(30),
+create table usluga( 
+    sifra int not null primary key auto_increment,
+    sisanje varchar(30),
     bojanje varchar(30),
     frizura varchar(30),
     cijena decimal(18,2)
 );
+
+
+# definiranje vanjskih kljuceva
+
+alter table djelatnica add foreign key (korisnik) references korisnik (sifra);
+alter table korisnik  add foreign key (usluga) references usluga (sifra);
+
+
+# unos podataka
+
+insert into korisnik (ime_prezime,narucen,usluga)
+values ('Mia Marić','2022-05-11 18:40:00',1);
+
+insert into djelatnica (oib,ime_prezime,korisnik)
+values ('34567890123','Marija Klarić',1);
