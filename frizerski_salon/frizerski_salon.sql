@@ -1,4 +1,4 @@
- # C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\frizerski_salon.sql
+ # C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\frizerski_salon\frizerski_salon.sql
 
 drop database if exists frizerski_salon;
 create database frizerski_salon;
