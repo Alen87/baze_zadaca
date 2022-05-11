@@ -1,4 +1,4 @@
- # C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\salon_za_uljepsavanje.sql
+ # C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\salon_za_uljepsavanje\salon_za_uljepsavanje.sql
 
 drop database if exists salon_za_uljepsavanje;
 create database salon_za_uljepsavanje;
