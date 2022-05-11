@@ -6,10 +6,10 @@ use frizerski_salon;
 
 create table djelatnica(
     sifra int not null primary key auto_increment,
-    oib char(11)not null,
+    oib char(11) not null,
     ime_prezime varchar(20) not null,
     godina_rodenja datetime,
-    korisnik int not null
+    korisnik int 
 );
 
 create table korisnik(
@@ -18,7 +18,7 @@ create table korisnik(
     broj_telefona varchar(20),
     narucen datetime not null,
     popust varchar(50),
-    usluga int not null
+    usluga int 
 );
 
 create table usluga( 
@@ -38,8 +38,8 @@ alter table korisnik  add foreign key (usluga) references usluga (sifra);
 
 # unos podataka
 
-insert into korisnik (ime_prezime,narucen,usluga)
-values ('Mia Marić','2022-05-11 18:40:00',1);
+insert into djelatnica (oib,ime_prezime)
+values ('34567890123','Marija Klarić');
 
-insert into djelatnica (oib,ime_prezime,korisnik)
-values ('34567890123','Marija Klarić',1);
+insert into korisnik (ime_prezime,narucen)
+values ('Mia Marić','2022-05-11 18:40:00');
