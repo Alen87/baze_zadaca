@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\djecji_vrtic.sql
+# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\djecji_vrtic\djecji_vrtic.sql
 
 drop database if exists djecji_vrtic;
 create database djecji_vrtic;
