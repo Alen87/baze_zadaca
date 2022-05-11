@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\muzej.sql
+# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\muzej\muzej.sql
 
 drop database if exists muzej;
 create database muzej;
