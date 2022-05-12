@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\udruga_za_zastitu_zivotinja.sql
+# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\udruga_za_zastitu_zivotinja\udruga_za_zastitu_zivotinja.sql
 
 drop database if exists udruga_za_zastitu_zivotinja;
 create database udruga_za_zastitu_zivotinja;
