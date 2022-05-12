@@ -4,7 +4,7 @@ drop database if exists taksi_sluzba;
 create database taksi_sluzba;
 use taksi_sluzba;
 
-create table vozila(
+create table vozilo(
     sifra int not null primary key auto_increment,
     naziv_vozila varchar(30) not null,
     registracija varchar(30) not null,
@@ -17,14 +17,16 @@ create table vozac(
   ime_prezime varchar(30) not null,
   oib char(11) not null,
   datum_lijecnicki datetime,
-  mjesto_prebivalista varchar(30)
+  mjesto_prebivalista varchar(30),
+  putnik int
 );
 
 create table putnik(
     sifra int not null primary key auto_increment,
     ime_prezime varchar(30) not null,
     relacija varchar(50) not null,
-    predeni_km varchar(50)
+    predeni_km varchar(50),
+    voznja int
 );
 
 create table voznja(
@@ -35,9 +37,14 @@ create table voznja(
     cijena decimal(18,2) not null
 );
 
-create table putnik_voznja(
-    sifra int not null primary key auto_increment,
-    putnik int not null,
-    voznja int not null
-);
+
+alter table vozilo add foreign key (vozac) references vozac(sifra);
+alter table vozac add foreign key (putnik) references putnik(sifra);
+alter table putnik add foreign key (voznja) references voznja(sifra); 
+
+insert into putnik (ime_prezime,relacija)
+values ('Marko Horvat','Osijek - Petrijevci');
+
+insert into vozac (ime_prezime,oib)
+values ('Petar Perić','85947037589');
 
