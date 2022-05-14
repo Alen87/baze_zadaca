@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin>mysql -uroot --default-character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\fakultet.sql
+# C:\xampp\mysql\bin>mysql -uroot --default-character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\fakultet\fakultet.sql
 
 drop database if exists fakultet;
 create database fakultet;
