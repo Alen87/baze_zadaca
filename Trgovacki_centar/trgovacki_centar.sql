@@ -42,4 +42,10 @@ create table sef(
      kontakt varchar(40)
 );
 
+# definiranje vanjskih kljuceva
 
+alter table trgovacki_centar add foreign key(trgovina) references trgovina(sifra);
+alter table trgovina add foreign key(sef) references sef(sifra);
+alter table osoba add foreign key(sef) references sef(sifra);
+alter table trgovina_osoba add foreign key (osoba) references osoba(sifra);
+alter table trgovina_osoba add foreign key (trgovina) references trgovina(sifra);
