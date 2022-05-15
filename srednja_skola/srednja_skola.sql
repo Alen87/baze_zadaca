@@ -45,4 +45,13 @@ create table  profesor(
     oib char(11) not null,
     kontakt varchar(30),
     adresa varchar(50)
-);   
+);  
+
+
+# definiranje  vanjskih  kljuceva
+alter table srednja_skola add foreign key(razred) references razred(sifra);
+alter table razred add foreign key (ucenik) references ucenik(sifra);
+alter table razred_profesor add foreign key (profesor) references profesor(sifra);
+alter table razred_profesor add foreign key (razred) references razred(sifra);
+
+
