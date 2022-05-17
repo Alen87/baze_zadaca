@@ -11,33 +11,12 @@ create table djelatnik(
   oib char(11) not null,
   kontakt varchar(30) not null,
   email varchar(30),
-  poslovni_email varchar(30),
   pocetak_rada datetime,
   loyality_kartica char(13) not null,
-  cip_zaprimljen boolean,
-  radna_odjeca_obuca int not null,
-  mobitel int,
-  edukacija int,
+  radna_odjeca_obuca varchar(50),
   sanitarna_iskaznica int not null,
-  higijenski_minimum int,
-  lijecnicki_pregled int not null,
-  ugovor int not null,
-  opasne_kiseline datetime,
+  ugovor varchar(30),
   zavrseno_zanimanje varchar(50)
-);
-
-create table radna_odjeca_obuca(
-    sifra int not null primary key auto_increment,
-    prvo_zaprimanje datetime not null,
-    pravo_na_slijedece_zaprimanje datetime not null,
-    majica_kratka_vel_kom varchar(50),
-    majica_duga_vel_kom varchar(50),
-    duksa_vel_kom varchar(50),
-    papuce_br char(2),
-    hlace_bijele_m_vel char(2),
-    hlace_bijele_z_vel char(2),
-    hlace_zimske_vel char(2),
-    prsluk_vel varchar(5)
 );
 
 create table mobitel(
@@ -47,62 +26,34 @@ create table mobitel(
     datum_zaprimanja datetime not null,
     pravo_na_slijedeci datetime,
     serijski_broj varchar(50),
-    ugovor_potpisan boolean
-);
+    djelatnik int
+    );
 
 create table edukacija(
-    sifra int not null primary key auto_increment,   
+    sifra int not null primary key auto_increment,
+    naziv varchar(50),   
     datum datetime not null,
     voditelj_edukacije varchar(30) not null,
-    trajanje_edukacije varchar(20),
-    potpis_djelatnika boolean
-);
+    trajanje_edukacije varchar(20)
+    );
 
 create table sanitarna_iskaznica(
     sifra int not null primary key auto_increment,  
     broj_iskaznice varchar(30),
     datum_obavljenog_pregleda datetime,
     vrijedi_do datetime,
-    cijena decimal(18,2),
-    placanje varchar(50)
-);
-
-create table higijenski_minimum(
-    sifra int not null primary key auto_increment,  
-    datum_polaganja datetime,
-    vrijedi_do datetime,
-    cijena decimal(18,2)  
-);
-
-create table lijecnicki_pregled(
-    sifra int not null primary key auto_increment,  
-    ustanova varchar(50) not null,
-    doktor varchar(40) not null,
-    datum datetime not null,
-    vrijedi_do datetime not null,
     cijena decimal(18,2)
-);
-
-
-create table ugovor(
-    sifra int not null primary key auto_increment,
-    opis_radnog_mjesta varchar(50) not null,
-    br_ugovora varchar(30) not null,
-    nocni_rad varchar(50),
-    datum_potpisivanja datetime,
-    vrijedi_do datetime,
-    za_stalno boolean,
-    ovjerio varchar(40),
-    prekid datetime
-    
     );
 
-    #definiranje vanjskih  kljuceva
+    create table djelatnik_edukacija (
+        sifra int not null primary key auto_increment,
+        djelatnik int,
+        edukacija int
+    );
 
-    alter table djelatnik add foreign key (radna_odjeca_obuca) references radna_odjeca_obuca(sifra);
-    alter table djelatnik add foreign key (mobitel) references mobitel(sifra);
-    alter table djelatnik add foreign key (edukacija) references edukacija(sifra);
+     #definiranje vanjskih  kljuceva
+
     alter table djelatnik add foreign key (sanitarna_iskaznica) references sanitarna_iskaznica(sifra);
-    alter table djelatnik add foreign key (higijenski_minimum) references higijenski_minimum(sifra);
-    alter table djelatnik add foreign key (lijecnicki_pregled) references lijecnicki_pregled(sifra);
-    alter table djelatnik add foreign key (ugovor) references ugovor(sifra); 
+    alter table mobitel add foreign key (djelatnik) references djelatnik(sifra);
+    alter table djelatnik_edukacija add foreign key (djelatnik) references djelatnik(sifra);
+    alter table djelatnik_edukacija add foreign key (edukacija) references edukacija(sifra);
