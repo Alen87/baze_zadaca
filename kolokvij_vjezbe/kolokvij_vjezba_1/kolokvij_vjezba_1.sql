@@ -1,4 +1,4 @@
-# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\kolokvij_vjezba_1\kolokvij_vjezba_1.sql
+# C:\xampp\mysql\bin>mysql -uroot --default_character_set=utf8 < C:\Users\Alen\Documents\GitHub\Alen87\baze_zadaca\kolokvij_vjezbe\kolokvij_vjezba_1\kolokvij_vjezba_1.sql
 # 0. Kreirajte tablice (16) i veze između tablica. (6)
 
 drop database if exists kolokvij_vjezba_1;
