@@ -90,3 +90,79 @@ insert into neprijatelj(sifra,majica,haljina,lipa,modelnaocala,kuna,jmbag,cura)
 values(null,null,'zelena',null,'okrugle',12.50,null,null),
       (null,null,'plava',null,'crne',15.50,null,null),
       (null,null,'crvena',null,'prozirne',16.50,null,null);
+
+
+insert into cura(sifra,haljina,drugiputa,suknja,narukvica,introventno,majica,decko)
+values(null,'zelena','2022-05-27',null,null,null,'plava',null),
+      (null,'plava','2022-05-26',null,null,null,'crvena',null), 
+      (null,'crvena','2022-05-25',null,null,null,'zelena',null);
+
+insert into  zarucnica(sifra,narukvica,bojakose,novcica,lipa,indiferentno)
+values(null,null,'plava',null,12.50,1),
+      (null,null,'crna',null,12.50,1),
+      (null,null,'zelena',null,12.50,1);
+
+insert into decko(sifra,introventno,vesta,asocijalno)
+values(null,null,null,1),
+      (null,null,null,1),
+      (null,null,null,1);
+
+insert into decko_zarucnica(sifra,decko,zarucnica)
+values(null,1,3),
+      (null,2,1),
+      (null,2,2);
+
+
+# 2. U tablici prijatelj postavite svim zapisima kolonu treciputa na vrijednost 30. travnja 2020. (4)
+insert into prijatelj(sifra,modelnaocala,treciputa,ekstroventno,prviputa,svekar)
+values(null,null,'2022-05-17',1,null,null),
+      (null,null,'2022-05-15',1,null,null),
+      (null,null,'2022-05-13',1,null,null);
+      
+     
+update prijatelj set treciputa='2020-04-30';      
+
+
+# 3. U tablici brat obrišite sve zapise čija je vrijednost kolone ogrlica različito od 14. (4)
+insert into brat(sifra,suknja,ogrlica,asocijalno,neprijatelj)
+values(null,null,12,1,1),
+      (null,null,15,1,2),
+      (null,null,14,1,3);
+
+delete from brat where ogrlica <>14; 
+
+# 4. Izlistajte suknja iz tablice cura uz uvjet da vrijednost kolone drugiputa nepoznate. (6)
+
+select suknja from cura 
+where drugiputa is null;
+
+# 5. Prikažite novcica iz tablice zarucnica, neprijatelj iz tablice brat te 
+#haljina iz tablice neprijatelj uz uvjet da su vrijednosti kolone 
+#drugiputa iz tablice cura poznate te da su vrijednosti kolone vesta iz 
+#tablice decko sadrže niz znakova ba. Podatke posložite po haljina iz 
+#tablice neprijatelj silazno. (10
+
+select a.novcica,f.neprijatelj ,e.haljina 
+from zarucnica a
+inner join decko_zarucnica b on b.zarucnica = a. sifra 
+inner join decko c on b.decko = c.sifra 
+inner join cura d on d.decko = c.sifra
+inner join neprijatelj e on e.cura = d.sifra
+inner join brat f on f.neprijatelj = e.sifra 
+where d.drugiputa is not null and c.vesta like '%ba%'
+order by e.haljina desc; 
+
+
+#6. Prikažite kolone vesta i asocijalno iz tablice decko čiji se primarni ključ ne nalaze u tablici decko_zarucnica. (5
+
+select a.vesta ,a.asocijalno 
+from decko a
+left join decko_zarucnica b on b.decko = a.sifra
+where b.sifra is null;
+
+
+
+
+      
+     
+      
