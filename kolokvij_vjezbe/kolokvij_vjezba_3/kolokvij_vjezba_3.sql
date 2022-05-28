@@ -57,7 +57,7 @@ create table  punica(
 
 create table cura(
     sifra  int not null primary key auto_increment,
-    dekserica varchar(49),
+    dukserica varchar(49),
     maraka decimal(13,7),
     drugiputa datetime,
     majica varchar(49),
@@ -112,5 +112,49 @@ values(null,null,12.59,7.50,null,1),
       (null,null,11.59,2.50,null,3);
 
 
-      
+ # 2. U tablici svekar postavite svim zapisima kolonu suknja na vrijednost Osijek. (4)
+
+  insert into cura(sifra,dukserica,maraka,drugiputa,majica,novcica,ogrlica)
+values(null,null,null,null,null,null,1),
+      (null,null,null,null,null,null,34),
+      (null,null,null,null,null,null,13);
+
+insert into svekar(sifra,novcica,suknja,bojakose,prstena,narukvica,cura)
+values(null,12.34,'zelena',null,null,5,1),
+      (null,12.34,'zelena',null,null,5,2),
+      (null,12.34,'zelena',null,null,5,3);
+
+update svekar set suknja ='Osijek';     
+
+# 3. U tablici punica obrišite sve zapise čija je vrijednost kolone kratkamajica jednako AB. (4)
+
+delete from punica where kratkamajica = 'AB';
+
+# 4. Izlistajte majica iz tablice ostavljena uz uvjet da vrijednost kolone lipa nije 9,10,20,30 ili 35. (6)
+
+select majica from ostavljena
+where lipa != 9 and lipa!=10 and lipa!=20 and lipa!=30 and lipa!=35;
+
+# 5. Prikažite ekstroventno iz tablice brat, vesta iz tablice punica te 
+# kuna iz tablice snasa uz uvjet da su vrijednosti kolone lipa iz tablice 
+# ostavljena različito od 91 te da su vrijednosti kolone haljina iz tablice 
+# prijatelj sadrže niz znakova ba. Podatke posložite po kuna iz tablice 
+# snasa silazno. (10)
+
+select a.ekstroventno ,f.vesta ,e.kuna  
+from brat a
+inner join prijatelj_brat b on b.brat = a.sifra 
+inner join prijatelj c on b.prijatelj = c.sifra
+inner join ostavljena d on d.prijatelj = c.sifra 
+inner join snasa e on e.ostavljena = d.sifra 
+inner join punica f on f.snasa = e.sifra
+where d.lipa <> 91 and c.haljina like '%ba%'
+order by e.kuna desc; 
+
+#6. Prikažite kolone haljina i lipa iz tablice prijatelj čiji se primarni ključ ne nalaze u tablici prijatelj_brat. (5)
+
+select a.haljina ,a.lipa 
+from prijatelj a 
+left join prijatelj_brat b on b.prijatelj = a.sifra 
+where b.sifra is null;
 
