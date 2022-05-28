@@ -39,7 +39,7 @@ create table ostavljena(
 
 create table snasa(
     sifra  int not null primary key auto_increment,
-    introventno bit,
+    introvertno bit,
     kuna decimal(15,6) not null,
     eura decimal(12,9) not null,
     treciputa datetime,
@@ -82,4 +82,35 @@ alter table ostavljena add foreign key (prijatelj) references prijatelj(sifra);
 alter table prijatelj_brat add foreign key (prijatelj) references prijatelj(sifra);
 alter table prijatelj_brat add foreign key (brat) references brat(sifra);
 alter table svekar add foreign key (cura) references cura(sifra);
+
+
+# 1. U tablice snasa, ostavljena i prijatelj_brat unesite po 3 retka. (7)
+
+insert into brat(sifra,jmbag,ogrlica,ekstroventno)
+values(null,null,18,1),
+      (null,null,12,1),
+      (null,null,23,1);
+
+insert into prijatelj(sifra,kuna,haljina,lipa,dukserica,indiferentno)
+values(null,null,null,null,null,1),
+      (null,null,null,null,null,1),
+      (null,null,null,null,null,1);
+
+insert into prijatelj_brat(sifra,prijatelj,brat)
+values(null,1,2),
+      (null,2,1),
+      (null,2,3);
+
+insert into ostavljena(sifra,kuna,lipa,majica,modelnaocala,prijatelj)
+values(null,null,null,null,'dioptrijske',1),
+      (null,null,null,null,'sunčane',2),
+      (null,null,null,null,'sunčane',3);
+
+insert into snasa(sifra,introvertno,kuna,eura,treciputa,ostavljena)
+values(null,null,12.59,7.50,null,1),
+      (null,null,13.34,3.50,null,2),
+      (null,null,11.59,2.50,null,3);
+
+
+      
 
