@@ -115,4 +115,30 @@ values(null,23.45,3,'zelena',null,null,1),
 
 #  2. U tablici svekrva postavite svim zapisima kolonu suknja na vrijednost Osijek. (4)
 
+insert into svekrva(sifra,hlace,suknja,ogrlica,treciputa,dukserica,narukvica,punac)
+values(null,'plave','crvena',5,'2022-05-30','plava',4,null),
+      (null,'crvena','plava',3,'2022-05-30','plava',2,null),
+      (null,'zelena','crvena',4,'2022-05-30','plava',7,null);
+      
+     
+update svekrva set suknja = 'Osijek';    
+
+# 3. U tablici decko obrišite sve zapise čija je vrijednost kolone modelnaocala manje od AB. (4)
+
+insert into decko(sifra,prviputa,modelnaocala,nausnica,zena)
+values(null,null,'A',null,1),
+      (null,null,'ABC',null,2),
+      (null,null,'ABCD',null,3);
+
+
+
+delete from decko where modelnaocala < 'AB';
+
+# 4. Izlistajte narukvica iz tablice brat uz uvjet da vrijednost kolone treciputa nepoznate. (6)
+
+select narukvica from brat where treciputa is null;
+
+
+
+
            
