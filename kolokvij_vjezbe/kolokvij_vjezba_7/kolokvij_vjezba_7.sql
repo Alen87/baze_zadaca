@@ -84,5 +84,88 @@ alter table sestra add foreign key (prijateljica) references prijateljica(sifra)
 alter table punica add foreign key (cura) references cura(sifra);
 
 
+# 1. U tablice prijateljica, ostavljen i zarucnik_mladic unesite po 3 retka. (7)
+
+insert into prijateljica(sifra,haljina,gustoca,ogrlica,novcica,ostavljen)
+values(null,null,23.56,null,null,null),
+      (null,null,10.56,null,null,null),
+      (null,null,20.56,null,null,null);
+      
+insert into ostavljen(sifra,lipa,introventno,kratkamajica,prstena,zarucnik)
+values(null,null,1,'zelena',5,null),
+      (null,null,1,'plava',4,null),
+      (null,null,1,'crvena',2,null);
+
+insert into zarucnik(sifra,vesta,asocijalno,modelnaocala,narukvica,novcica)
+values(null,null,1,null,3,11.4),
+      (null,null,1,null,4,10.4),
+      (null,null,1,null,5,12.4);
+      
+insert into mladic(sifra,prstena,lipa,narukvica,drugiputa)
+values(null,null,11.4,4,'2022-05-31'),
+      (null,null,10.4,5,'2022-05-30'),
+      (null,null,12.4,3,'2022-05-29');
+      
+insert into zarucnik_mladic(sifra,zarucnik,mladic)
+values(null,2,2),
+      (null,1,3),
+      (null,1,1);
+
+# 2. U tablici punica postavite svim zapisima kolonu eura na vrijednost 15,77. (4) 
+
+insert into cura(sifra,lipa,introventno,modelnaocala,narukvica,treciputa,kuna)
+values(null,78.34,null,null,null,null,null),
+      (null,56.34,null,null,null,null,null),
+      (null,45.34,null,null,null,null,null);
+
+
+insert into punica(sifra,majica,eura,prstena,cura)
+values(null,null,12.56,null,1),
+      (null,null,10.56,null,2),
+      (null,null,15.56,null,3);
+
+update punica set eura = 15.77;     
+
+# 3. U tablici sestra obrišite sve zapise čija je vrijednost kolone hlace manje od AB. (4)
+
+insert into sestra(sifra,bojakose,hlace,lipa,stilfrizura,maraka,prijateljica)
+values(null,'crvena','A',null,'kratko',20.54,null),
+      (null,'plava','ABA',null,'kratko',21.54,null),
+      (null,'crna','AB',null,'kratko',22.54,null);
+     
+delete from sestra where hlace < 'AB';     
+
+# 4. Izlistajte kratkamajica iz tablice ostavljen uz uvjet da vrijednost kolone introvertno nepoznate. (6)  
+
+select kratkamajica from ostavljen where introventno is null;
+
+# 5. Prikažite narukvica iz tablice mladic, stilfrizura iz tablice sestra te 
+# gustoca iz tablice prijateljica uz uvjet da su vrijednosti kolone 
+# introvertno iz tablice ostavljen poznate te da su vrijednosti kolone 
+# asocijalno iz tablice zarucnik poznate. Podatke posložite po gustoca iz 
+# tablice prijateljica silazno. (10)
+
+select a.narukvica ,f.stilfrizura ,e.gustoca 
+from mladic a
+inner join zarucnik_mladic b on b.mladic = a.sifra 
+inner join zarucnik c on b.zarucnik = c.sifra 
+inner join ostavljen d on d.zarucnik = c.sifra 
+inner join prijateljica e on e.ostavljen = d.sifra 
+inner join sestra f on f.prijateljica = e.sifra
+where d.introventno is not null and c.asocijalno is not null 
+order by e.gustoca desc ;
+
+# 6. Prikažite kolone asocijalno i modelnaocala iz tablice zarucnik čiji se primarni ključ ne nalaze u tablici zarucnik_mladic. (5)
+
+select a.asocijalno ,a.modelnaocala 
+from zarucnik a
+left join zarucnik_mladic b on b.zarucnik = a.sifra
+where b.sifra is null;
+    
+
+
+          
+
+
 
 
