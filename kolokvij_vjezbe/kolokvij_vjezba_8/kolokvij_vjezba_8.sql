@@ -131,6 +131,29 @@ delete from brat where novcica <> 12.75;
 
 select prviputa from becar where treciputa is null;
 
+# 5. Prikažite bojakose iz tablice decko, neprijatelj iz tablice brat te 
+# introvertno iz tablice neprijatelj uz uvjet da su vrijednosti kolone 
+# treciputa iz tablice becar poznate te da su vrijednosti kolone 
+# drugiputa iz tablice muskarac poznate. Podatke posložite po 
+# introvertno iz tablice neprijatelj silazno. (10)
+
+select  a.bojakose,f.neprijatelj,e.introventno  
+from decko a
+inner join muskarac_decko b on a.sifra = b.decko 
+inner join muskarac c on b.muskarac = c.sifra 
+inner join becar d on c.sifra = d.muskarac 
+inner join neprijatelj e on d.sifra = e.becar 
+inner join brat f on e.sifra = f.neprijatelj 
+where d.treciputa is not null and c.drugiputa is not null 
+order by e.introventno desc;
+
+# 6. Prikažite kolone drugiputa i treciputa iz tablice muskarac čiji se primarni ključ ne nalaze u tablici muskarac_decko. (5)
+
+select a.drugiputa,a.treciputa 
+from muskarac a 
+left join muskarac_decko b on a.sifra = b.muskarac
+where b.sifra is null;
+
 
 
 
